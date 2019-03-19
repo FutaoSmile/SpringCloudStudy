@@ -1,0 +1,18 @@
+server:
+  port: 8885
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8881/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: consumer-ribbon
+    api-b:
+      path: /api-b/**
+      serviceId: consumer-feign
+spring:
+  application:
+    name: zuul-gateway
