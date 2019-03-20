@@ -4,6 +4,9 @@ spring:
   application:
     name: eureka-provider
 eureka:
+#  instance:
+#    lease-renewal-interval-in-seconds: 90
+#    lease-expiration-duration-in-seconds: 30  # 服务续约任务的调用时间间隔
   client:
     service-url:
       defaultZone: http://localhost:8881/eureka/      # eureka server 的地址

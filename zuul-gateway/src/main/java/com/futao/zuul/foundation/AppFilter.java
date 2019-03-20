@@ -1,12 +1,16 @@
 package com.futao.zuul.foundation;
 
+import com.futao.zuul.utils.JwtTools;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @author futao
@@ -48,8 +52,21 @@ public class AppFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
         RequestContext requestContext = RequestContext.getCurrentContext();
+        HttpServletResponse response = requestContext.getResponse();
         HttpServletRequest request = requestContext.getRequest();
         log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
+        String token = request.getHeader("token");
+        if (StringUtils.isBlank(token)) {
+            try {
+                System.out.println("<<< 未登录");
+                response.getOutputStream().write("请先登录".getBytes());
+                return null;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println(">>> 当前用户为： " + JwtTools.getUserInfo(token));
+        }
         return null;
     }
 }
