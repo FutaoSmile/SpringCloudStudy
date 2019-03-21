@@ -16,3 +16,13 @@
 访问[http://localhost:8885/api-b/hello/say/2321312](http://localhost:8885/api-b/hello/say/2321312)    ->feign
 
 具体查看zuul-gateway网关层配置
+
+### # 特性
+* 分布式swagger文档管理中心
+
+
+### # 资料
+* 分布式swagger文档整合    https://blog.csdn.net/yangchuanan/article/details/82774934
+
+
+

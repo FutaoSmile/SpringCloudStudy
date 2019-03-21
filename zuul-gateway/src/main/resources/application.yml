@@ -7,11 +7,11 @@ eureka:
 
 zuul:
   routes:
-    api-a:
-      path: /api-a/**
+    ribbonServer:
+      path: /ribbon/**
       serviceId: consumer-ribbon
-    api-b:
-      path: /api-b/**
+    feignServer:
+      path: /feign/**
       serviceId: consumer-feign
 spring:
   application:

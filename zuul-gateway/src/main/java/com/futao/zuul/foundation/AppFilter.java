@@ -57,13 +57,9 @@ public class AppFilter extends ZuulFilter {
         log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
         String token = request.getHeader("token");
         if (StringUtils.isBlank(token)) {
-            try {
-                System.out.println("<<< 未登录");
-                response.getOutputStream().write("请先登录".getBytes());
-                return null;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("<<< 未登录");
+//                response.getOutputStream().write("请先登录".getBytes());
+            return null;
         } else {
             System.out.println(">>> 当前用户为： " + JwtTools.getUserInfo(token));
         }
