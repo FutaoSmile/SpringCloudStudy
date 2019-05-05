@@ -1,0 +1,18 @@
+#similar to application.properties but for the bootstrap phase of an application context(用于应用程序上下文的引导阶段)
+spring:
+  application:
+    #组件名称
+    name: zuul-gateway
+  cloud:
+    config:
+      #配置管理中心地址
+      uri: http://localhost:6666
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"

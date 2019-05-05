@@ -1,5 +1,11 @@
 server:
   port: 8885
+spring:
+  profiles:
+    active: dev
+
+
+
 eureka:
   client:
     service-url:
@@ -7,12 +13,12 @@ eureka:
 
 zuul:
   routes:
-    ribbonServer:
+    ribbon-server:
       path: /ribbon/**
-      serviceId: consumer-ribbon
-    feignServer:
+      service-id: consumer-ribbon
+    feign-server:
       path: /feign/**
-      serviceId: consumer-feign
-spring:
-  application:
-    name: zuul-gateway
+      service-id: consumer-feign
+    # url: http://www.baidu.com   # 将所有的请求都转发到这个默认的地址
+  ignored-services: eureka-provider,consumer-ribbon,consumer-feign    # 可用于忽略eureka中的默认服务名称路由/设置为* 即排除所有来自eurake的服务名称路由
+  prefix: /api/v1       # 路由地址前缀

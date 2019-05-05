@@ -23,6 +23,6 @@ public class ZuulApplicationNormalTest {
     @Test
     public void test1() {
         System.out.println(JwtTools.genToken(new UserTokenInfo("123", "付韬")));
-        System.out.println(JwtTools.getUserInfo("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiLku5jpn6wiLCJmdXRhb3VzZXJJZCI6IjEyMyIsImZ1dGFvdXNlck5hbWUiOiLku5jpn6wiLCJleHAiOjE1NTI5OTI2NzR9.CuBxrZ3Tv6bJXNXT7wtYiJHqcJYMazN5JXLbYztx7wU"));
+//        System.out.println(JwtTools.getUserInfo("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiLku5jpn6wiLCJmdXRhb3VzZXJJZCI6IjEyMyIsImZ1dGFvdXNlck5hbWUiOiLku5jpn6wiLCJleHAiOjE1NTI5OTI2NzR9.CuBxrZ3Tv6bJXNXT7wtYiJHqcJYMazN5JXLbYztx7wU"));
     }
 }

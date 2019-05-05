@@ -1,5 +1,5 @@
 server:
-  port: 8887
+  port: 6666
 spring:
   application:
     name: config-server
@@ -7,6 +7,16 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/FutaoSmile/SpringCloudConfigRepostory.git # 配置git仓库地址
+          uri: https://github.com/FutaoSmile/SpringCloudConfigRepostory # 配置git仓库地址
           search-paths: respo       # 配置仓库路径
       label: master           # 配置仓库的分支
+  config:
+    name: config-server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"

@@ -1,15 +1,14 @@
 package com.futao.zuul;
 
+import com.futao.framework.foundation.annotation.EnableCommonFrameWorkFoundation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 微服务网关Zuul
@@ -22,7 +21,9 @@ import org.springframework.web.filter.CorsFilter;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @EnableEurekaClient
-@SpringBootApplication(scanBasePackages = {"com.futao.zuul", "com.futao.framework"})
+@SpringBootApplication
+@RestController("/")
+@EnableCommonFrameWorkFoundation
 public class ZuulGatewayApplication {
 
     public static void main(String[] args) {
@@ -41,4 +42,9 @@ public class ZuulGatewayApplication {
 //        source.registerCorsConfiguration("/**", config);
 //        return new CorsFilter(source);
 //    }
+
+    @RequestMapping("/")
+    public String home() {
+        return "Hello World!";
+    }
 }

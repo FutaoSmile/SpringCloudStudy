@@ -1,10 +1,15 @@
 package com.futao.zuul.utils;
 
 import com.futao.zuul.model.UserTokenInfo;
+import com.netflix.zuul.context.RequestContext;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 
 /**
@@ -17,6 +22,7 @@ import java.util.Date;
  * @author futao
  * Created on 2019-03-19.
  */
+@Slf4j
 public class JwtTools {
 
     /**
@@ -41,11 +47,24 @@ public class JwtTools {
      * @param token token
      * @return 用户信息
      */
-    public static UserTokenInfo getUserInfo(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(Constant.JwtConfig.JWT_KEY)
-                .parseClaimsJws(token)
-                .getBody();
+    public static UserTokenInfo getUserInfo(String token, HttpServletResponse response, RequestContext requestContext) {
+        Claims claims;
+        try {
+            claims = Jwts.parser()
+                    .setSigningKey(Constant.JwtConfig.JWT_KEY)
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (Exception e) {
+            log.error("token格式错误");
+            try {
+                response.getWriter().write("token格式错误");
+                requestContext.setSendZuulResponse(false);
+                requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            return null;
+        }
         UserTokenInfo userTokenInfo = new UserTokenInfo();
         userTokenInfo.setUserId(claims.get(Constant.JwtConfig.JWT_KEY_USER_ID).toString());
         userTokenInfo.setUserName(claims.get(Constant.JwtConfig.JWT_KEY_USER_NAME).toString());

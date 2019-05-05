@@ -24,6 +24,9 @@ public class HelloController {
      */
     @GetMapping("say/{words}")
     public String say(@PathVariable String words) {
+        if (words.endsWith("s")) {
+            throw new NullPointerException("serviceProvider空指针了");
+        }
         return String.format("你好 %s! I am %s", words, port);
     }
 }

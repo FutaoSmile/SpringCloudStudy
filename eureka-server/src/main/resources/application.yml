@@ -20,3 +20,11 @@ spring:
     name: eureka-server
   profiles:
     active: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
