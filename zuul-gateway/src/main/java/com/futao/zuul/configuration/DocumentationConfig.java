@@ -18,8 +18,8 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
     @Override
     public List<SwaggerResource> get() {
         List<SwaggerResource> resources = new ArrayList<>();
-        resources.add(swaggerResource("ribbon", "/ribbon/v2/api-docs", "2.0"));
-        resources.add(swaggerResource("feign", "/feign/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("ribbon", "/api/v1/ribbon/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("feign", "/api/v1/feign/v2/api-docs", "2.0"));
         resources.add(swaggerResource("local", "/v2/api-docs", "2.0"));
         return resources;
     }

@@ -4,11 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--当前项目信息-->
     <groupId>com.futao</groupId>
     <artifactId>springclouddemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <!--SpringCloud基于SpringCloud-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,7 +18,7 @@
         <relativePath/>
     </parent>
 
-
+    <!--子模块-->
     <modules>
         <module>eureka-server</module>
         <module>eureka-provider</module>
@@ -26,6 +28,7 @@
         <module>config-server</module>
     </modules>
 
+    <!--属性-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -34,35 +37,40 @@
         <swagger.version>2.7.0</swagger.version>
     </properties>
 
+    <!--子模块都依赖的依赖-->
     <dependencies>
+        <!--测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--代码简化-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!--SpringBoot应用监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--Apache工具类-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.futao</groupId>
-            <artifactId>foundation</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!--自定义的通用模块-->
+            <dependency>
+                <groupId>com.futao</groupId>
+                <artifactId>foundation</artifactId>
+                <version>1.0.1</version>
+            </dependency>
+            <!--SpringCloud依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -76,17 +84,23 @@
                 <artifactId>jjwt</artifactId>
                 <version>0.9.1</version>
             </dependency>
+            <!--Swagger文档-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
+            <!--Swagger文档-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-
+            <!--配置文件管理-客户端-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config-client</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--依赖的父模块-->
     <parent>
         <groupId>com.futao</groupId>
         <artifactId>springclouddemo</artifactId>
@@ -10,6 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <!--模块信息-->
     <artifactId>eureka-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>eureka-server</name>
@@ -20,6 +22,7 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!--模块依赖-->
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: config-server
+  rabbitmq:
+    addresses: localhost
+    username: futao
+    password: 123456
   cloud:
     config:
       server:

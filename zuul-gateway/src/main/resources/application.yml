@@ -22,3 +22,5 @@ zuul:
     # url: http://www.baidu.com   # 将所有的请求都转发到这个默认的地址
   ignored-services: eureka-provider,consumer-ribbon,consumer-feign    # 可用于忽略eureka中的默认服务名称路由/设置为* 即排除所有来自eurake的服务名称路由
   prefix: /api/v1       # 路由地址前缀
+
+debug: true

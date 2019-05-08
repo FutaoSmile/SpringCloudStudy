@@ -4,7 +4,6 @@ import com.futao.framework.foundation.utils.CommonTools;
 import com.futao.zuul.utils.FilterUtils;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
+import static com.futao.zuul.model.ZuulConstant.REQUEST_ID_KEY;
+import static com.futao.zuul.model.ZuulConstant.REQUEST_START_TIME_KEY;
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
 /**
@@ -62,11 +63,12 @@ public class PreZuulFilter extends ZuulFilter {
      * run：过滤器的具体逻辑。可用很复杂，包括查sql，nosql去判断该请求到底有没有权限访问。
      *
      * @return
-     * @throws ZuulException
      */
     @Override
-    public Object run() throws ZuulException {
+    public Object run() {
         RequestContext requestContext = RequestContext.getCurrentContext();
+        requestContext.set(REQUEST_START_TIME_KEY, System.currentTimeMillis());
+        requestContext.set(REQUEST_ID_KEY, CommonTools.uuid());
         HttpServletResponse response = requestContext.getResponse();
         HttpServletRequest request = requestContext.getRequest();
 

@@ -1,6 +1,5 @@
-package com.futao.zuul.configuration;
+package com.futao.consumerfeign.configuration;
 
-import com.futao.framework.foundation.interceptors.RequestLogInterceptor;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,10 +13,6 @@ import javax.annotation.Resource;
  */
 @SpringBootConfiguration
 public class WebMvcConfiguration implements WebMvcConfigurer {
-
-    @Resource
-    private RequestLogInterceptor requestLogInterceptor;
-
     /**
      * 添加静态资源映射
      * <p>
@@ -37,19 +32,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
         registry.addResourceHandler("/file/**")
                 .addResourceLocations("classpath:/uploadFiles/");
     }
-
-    /**
-     * 拦截器
-     *
-     * @param registry
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        //正常情况下不会打印，异常情况下才会打印???
-        registry.addInterceptor(requestLogInterceptor).addPathPatterns("/**");
-    }
-
 }
