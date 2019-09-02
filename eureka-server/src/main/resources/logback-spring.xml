@@ -127,7 +127,6 @@
         </filter>
     </appender>
 
-
     <!--个人理解：启动哪些appender-->
     <root level="info">
         <appender-ref ref="STDOUT"/>
@@ -170,7 +169,7 @@
 
     <!-- 单独设置某个类(包)的日志输出级别、或者在配置文件中设置logging.level.com.lankydan.service.MyServiceImpl=debug-->
     <!--这里需要注意，如果这样写的话，那么其他appender对于这个类(包就无效了)-->
-<!--    <logger name="com.futao.eurekaserver.EurekaServerApplication" level="trace" additivity="false">-->
-<!--        <appender-ref ref="STDOUT"/>-->
-<!--    </logger>-->
+    <!--    <logger name="com.futao.eurekaserver.EurekaServerApplication" level="trace" additivity="false">-->
+    <!--        <appender-ref ref="STDOUT"/>-->
+    <!--    </logger>-->
 </configuration>

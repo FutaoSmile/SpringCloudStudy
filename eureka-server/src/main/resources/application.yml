@@ -17,8 +17,6 @@ eureka:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
-  application:
-    name: eureka-server
   profiles:
     active: dev
   output:
@@ -34,12 +32,3 @@ management:
         allowed-methods: "*"
 debug: true
 
-logging:
-  config: classpath:logback-spring.xml
-  level:
-    com:
-      futao:
-        eurekaserver:
-          EurekaServerApplication: debug
-  path: logs/${spring.application.name}/  #  as LOG_PATH
-  file: logs/log.log
