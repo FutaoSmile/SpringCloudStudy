@@ -16,3 +16,13 @@ management:
       cors:
         allowed-origins: "*"
         allowed-methods: "*"
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com:
+      futao:
+        eurekaserver:
+          EurekaServerApplication: debug
+  path: logs/${spring.application.name}/  #  as LOG_PATH
+  file: logs/log.log

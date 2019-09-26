@@ -52,7 +52,7 @@
             <artifactId>springfox-swagger2</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.futao</groupId>
+            <groupId>com.lazyer.starter</groupId>
             <artifactId>foundation</artifactId>
         </dependency>
     </dependencies>

@@ -1,6 +1,6 @@
 package com.futao.zuul.model;
 
-import com.futao.framework.foundation.utils.DateTools;
+import com.lazyer.foundation.utils.DateTools;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

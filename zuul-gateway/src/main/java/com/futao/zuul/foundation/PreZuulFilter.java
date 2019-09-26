@@ -1,7 +1,7 @@
 package com.futao.zuul.foundation;
 
-import com.futao.framework.foundation.utils.CommonTools;
 import com.futao.zuul.utils.FilterUtils;
+import com.lazyer.foundation.utils.CommonTools;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;

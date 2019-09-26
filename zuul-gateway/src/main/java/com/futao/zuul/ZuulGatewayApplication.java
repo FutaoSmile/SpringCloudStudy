@@ -1,6 +1,6 @@
 package com.futao.zuul;
 
-import com.futao.framework.foundation.annotation.EnableCommonFrameWorkFoundation;
+import com.lazyer.foundation.annotation.EnableLazyer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @SpringBootApplication
 @RestController("/")
-@EnableCommonFrameWorkFoundation
+@EnableLazyer
 public class ZuulGatewayApplication {
 
     public static void main(String[] args) {

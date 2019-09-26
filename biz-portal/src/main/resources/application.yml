@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_cloud_learn?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456789
+
+
+server:
+  port: 8662
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8881/eureka/
+
+debug: false
+

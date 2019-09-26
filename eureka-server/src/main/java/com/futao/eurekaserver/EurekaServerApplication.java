@@ -25,6 +25,7 @@ public class EurekaServerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         log.trace("trace---");
         log.debug("debug---");
         log.info("info---");

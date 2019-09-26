@@ -1,6 +1,6 @@
 package com.futao.zuul.configuration;
 
-import com.futao.framework.foundation.interceptors.RequestLogInterceptor;
+import com.lazyer.foundation.interceptors.RequestLogInterceptor;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
