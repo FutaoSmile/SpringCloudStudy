@@ -12,15 +12,34 @@ spring:
     url: jdbc:mysql://localhost:3306/spring_cloud_learn?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456789
-
-
+  cloud:
+    consul:
+      enabled: true
+      host: localhost
+      port: 8500
+  main:
+    allow-bean-definition-overriding: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:6010
 server:
   port: 8662
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8881/eureka/
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8881/eureka/
 
 debug: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 

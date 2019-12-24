@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.1.11.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -29,6 +29,7 @@
         <module>biz-order</module>
         <module>biz-storehouse</module>
         <module>biz-portal</module>
+        <module>spring-admin-server</module>
     </modules>
 
     <!--属性-->
@@ -39,6 +40,7 @@
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <swagger.version>2.7.0</swagger.version>
         <seata.version>0.8.1</seata.version>
+        <spring.boot.admin.version>2.1.6</spring.boot.admin.version>
 
     </properties>
 
@@ -65,10 +67,21 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
             <!--自定义的通用模块-->
             <dependency>
                 <groupId>com.lazyer.starter</groupId>

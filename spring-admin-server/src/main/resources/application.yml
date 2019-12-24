@@ -1,0 +1,10 @@
+server:
+  port: 6010
+spring:
+  cloud:
+    consul:
+      enabled: true
+      host: localhost
+      port: 8500
+  main:
+    allow-bean-definition-overriding: true
