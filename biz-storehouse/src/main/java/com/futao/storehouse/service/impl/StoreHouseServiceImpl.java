@@ -15,7 +15,7 @@ import java.sql.Timestamp;
  * Created on 2019/9/26.
  */
 @Slf4j
-@Transactional(rollbackFor = Exception.class)
+//@Transactional(rollbackFor = Exception.class)
 @Service
 public class StoreHouseServiceImpl implements StoreHouseService {
 
