@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService {
         orderEntity.setAmount(amount);
         orderEntity.setCreateTime(new Timestamp(System.currentTimeMillis()));
         orderEntity.setStatus(1);
-        orderDao.save(orderEntity);
+        orderDao.insert(orderEntity);
         log.info("订单生成成功");
     }
 }

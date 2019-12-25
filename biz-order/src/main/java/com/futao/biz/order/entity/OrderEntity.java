@@ -1,11 +1,13 @@
 package com.futao.biz.order.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -16,16 +18,23 @@ import java.sql.Timestamp;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "biz_order")
+//@Entity
+//@Table(name = "futao_springcloud_biz_order")
+@TableName("biz_order")
 public class OrderEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @TableId(value = "id")
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column
+
+    @TableField("amount")
+//    @Column
     private Long amount;
-    @Column
+
+//    @Column
     private int status;
+
     private Timestamp createTime;
     private Timestamp updateTime;
 }

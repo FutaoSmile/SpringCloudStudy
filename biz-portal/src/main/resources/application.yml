@@ -12,13 +12,16 @@ spring:
     url: jdbc:mysql://localhost:3306/spring_cloud_learn?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456789
+    driver-class-name: com.mysql.jdbc.Driver
+
   cloud:
     consul:
       enabled: true
       host: localhost
       port: 8500
-  main:
-    allow-bean-definition-overriding: true
+      discovery:
+        instance-id: ${spring.application.name}-${random.uuid}
+
   boot:
     admin:
       client:
