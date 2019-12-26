@@ -15,7 +15,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
 <!--        <version>2.1.8.RELEASE</version>-->
-        <version>2.0.3.RELEASE</version>
+        <version>2.1.3.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -31,6 +31,7 @@
         <module>biz-storehouse</module>
         <module>biz-portal</module>
         <module>spring-admin-server</module>
+        <module>biz-user</module>
     </modules>
 
     <!--属性-->
@@ -38,12 +39,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
         <swagger.version>2.7.0</swagger.version>
         <seata.version>0.8.1</seata.version>
-        <spring.boot.admin.version>2.0.6</spring.boot.admin.version>
+        <spring.boot.admin.version>2.1.6</spring.boot.admin.version>
         <mybatis.plus.version>3.3.0</mybatis.plus.version>
         <hutool.version>5.0.4</hutool.version>
+        <fastjson.version>1.2.56</fastjson.version>
 
     </properties>
 
@@ -80,6 +82,31 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
+        </dependency>
+        <!--注意：如果要使用@ConfigurationProperties的方式来注入，那么必须添加此依赖，
+              否则项目打包之后不会生成spring-configuration-metadata.json，被其他项目依赖的时候，也无法在配置文件中设值-->
+        <!--注解处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--logback日志-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+
+        <!--JSON工具-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
     </dependencies>
