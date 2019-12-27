@@ -1,7 +1,7 @@
 package com.futao.biz.user.entity;
 
+import java.math.BigDecimal;
 import com.futao.common.db.IdTimeEntity;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户表
+ * 用户账户表
  * </p>
  *
  * @author futao
@@ -18,44 +18,19 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class UserUser extends IdTimeEntity {
+public class UserAccount extends IdTimeEntity {
 
     private static final long serialVersionUID=1L;
 
     /**
-     * 真实姓名
+     * 用户主键
      */
-    private String realName;
+    private String userId;
 
     /**
-     * 手机号
+     * 余额，保留两位小数
      */
-    private String mobile;
-
-    /**
-     * 地址
-     */
-    private String address;
-
-    /**
-     * 性别
-     */
-    private Integer sex;
-
-    /**
-     * 头像地址
-     */
-    private String avatar;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 生日
-     */
-    private LocalDate birthday;
+    private BigDecimal balance;
 
     /**
      * 创建时间
@@ -69,7 +44,6 @@ public class UserUser extends IdTimeEntity {
 
     /**
      * 修改时间
-
      */
     private LocalDateTime updateDateTime;
 

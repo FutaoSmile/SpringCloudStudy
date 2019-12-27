@@ -1,4 +1,4 @@
-package com.futao.biz.user;
+package com.futao.common.tools;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -8,6 +8,9 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.futao.common.db.IdTimeEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -21,6 +24,47 @@ import java.util.Scanner;
  * @date 2019/12/27.
  */
 public class CodeGen {
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class Config {
+        /**
+         * eg `com.futao.biz.user`
+         */
+        public String basePackage;
+        /**
+         * eg `/biz-user`
+         */
+        private String modelName;
+
+        /**
+         * eg `futao`
+         */
+        private String author;
+
+        /**
+         * eg `jdbc:mysql://localhost:3306/spring_cloud_learn?useUnicode=true&useSSL=false&characterEncoding=utf8`
+         */
+        private String jdbc;
+
+        /**
+         * eg `root`
+         */
+        private String userName;
+
+        /**
+         * 密码
+         */
+        private String password;
+
+        /**
+         * 需要生成的表名
+         */
+        private String[] tableNames;
+
+
+    }
 
     /**
      * 读取控制台内容
@@ -39,32 +83,32 @@ public class CodeGen {
         throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
 
-    public static void main(String[] args) {
+    public static void run(CodeGen.Config config) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/biz-user/src/main/java");
-        gc.setAuthor("futao");
+        gc.setOutputDir(projectPath + config.modelName + "/src/main/java");
+        gc.setAuthor(config.author);
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/spring_cloud_learn?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl(config.jdbc);
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456789");
+        dsc.setUsername(config.userName);
+        dsc.setPassword(config.password);
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
 //        pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.futao.biz.user");
+        pc.setParent(config.basePackage);
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -87,7 +131,7 @@ public class CodeGen {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/biz-user/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + config.modelName + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
@@ -125,8 +169,11 @@ public class CodeGen {
         // 公共父类
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+
+        // TODO: 2019/12/28 不生效啊
+        strategy.setSuperEntityColumns("id", "createDateTime", "createBy", "updateDateTime", "updateBy");
+//        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
+        strategy.setInclude(config.tableNames);
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

@@ -1,4 +1,4 @@
-package com.futao.common;
+package com.futao.common.configuration;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
