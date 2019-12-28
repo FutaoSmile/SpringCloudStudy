@@ -56,27 +56,4 @@ public class UserUser extends IdTimeEntity {
      * 生日
      */
     private LocalDate birthday;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createDateTime;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 修改时间
-
-     */
-    private LocalDateTime updateDateTime;
-
-    /**
-     * 修改人
-     */
-    private String updateBy;
-
-
 }

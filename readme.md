@@ -31,6 +31,9 @@
 * 服务注册中心
 ![image.png](https://upload-images.jianshu.io/upload_images/1846623-771d179ea3a70c21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+### # Apollo
+https://www.jianshu.com/p/f5812f27196a
+
 
 
 
@@ -38,5 +41,8 @@
 ## # TODO
 * 附近的人-redis
 * 分布式锁-redisson
-* apollo
 * ELK 日志
+* 配置管理
+    * Apollo
+    * XXL-CONF
+* 任务调度

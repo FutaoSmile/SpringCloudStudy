@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -25,13 +26,13 @@ public class IdTimeEntity {
     private String id;
 
     @TableField(value = "create_date_time", fill = FieldFill.INSERT)
-    private Date createDateTime;
+    private LocalDateTime createDateTime;
 
     @TableField(value = "create_by", fill = FieldFill.INSERT)
     private String createBy;
 
     @TableField(value = "update_date_time", fill = FieldFill.INSERT_UPDATE)
-    private Date updateDateTime;
+    private LocalDateTime updateDateTime;
 
     @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
     private String updateBy;

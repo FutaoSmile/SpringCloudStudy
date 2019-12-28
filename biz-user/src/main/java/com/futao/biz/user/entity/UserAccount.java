@@ -31,26 +31,4 @@ public class UserAccount extends IdTimeEntity {
      * 余额，保留两位小数
      */
     private BigDecimal balance;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createDateTime;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 修改时间
-     */
-    private LocalDateTime updateDateTime;
-
-    /**
-     * 修改人
-     */
-    private String updateBy;
-
-
 }
