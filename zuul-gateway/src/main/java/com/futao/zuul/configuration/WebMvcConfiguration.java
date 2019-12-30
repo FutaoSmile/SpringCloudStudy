@@ -1,6 +1,5 @@
 package com.futao.zuul.configuration;
 
-import com.lazyer.foundation.interceptors.RequestLogInterceptor;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -15,8 +14,6 @@ import javax.annotation.Resource;
 @SpringBootConfiguration
 public class WebMvcConfiguration implements WebMvcConfigurer {
 
-    @Resource
-    private RequestLogInterceptor requestLogInterceptor;
 
     /**
      * 添加静态资源映射
@@ -49,7 +46,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //正常情况下不会打印，异常情况下才会打印???
-        registry.addInterceptor(requestLogInterceptor).addPathPatterns("/**");
+//        registry.addInterceptor(requestLogInterceptor).addPathPatterns("/**");
     }
 
 }

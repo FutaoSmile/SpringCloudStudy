@@ -49,6 +49,8 @@
         <fastjson.version>1.2.56</fastjson.version>
         <apollo.version>1.1.0</apollo.version>
         <velocity.version>2.1</velocity.version>
+        <xxl.job.version>2.1.2</xxl.job.version>
+        <xxl.conf.version>1.6.1</xxl.conf.version>
 
     </properties>
 
@@ -191,11 +193,25 @@
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
             </dependency>
+            <!-- 携程分布式配置中心-apollo-->
             <dependency>
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-client</artifactId>
                 <version>${apollo.version}</version>
             </dependency>
+            <!--xxl-conf-xxl分布式配置中心-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-conf-core</artifactId>
+                <version>${xxl.conf.version}</version>
+            </dependency>
+            <!--分布式任务调度xxlJob-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl.job.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

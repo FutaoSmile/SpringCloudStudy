@@ -1,6 +1,5 @@
 package com.futao.zuul.model;
 
-import com.lazyer.foundation.utils.DateTools;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -65,7 +64,6 @@ public class RestResult {
         this.code = code;
         this.data = data;
         this.errorMessage = errorMessage;
-        this.serverTime = DateTools.currentTimeStamp();
     }
 }
 

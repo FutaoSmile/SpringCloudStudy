@@ -43,6 +43,7 @@ https://www.jianshu.com/p/f5812f27196a
 * 分布式锁-redisson
 * ELK 日志
 * 配置管理
-    * Apollo
+    * ~~Apollo~~
     * XXL-CONF
-* 任务调度
+* 任务调度  xxljob
+* Mycat ShadingJdbc

@@ -1,7 +1,6 @@
 package com.futao.zuul.foundation;
 
 import com.futao.zuul.utils.FilterUtils;
-import com.lazyer.foundation.utils.CommonTools;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;
@@ -68,7 +67,7 @@ public class PreZuulFilter extends ZuulFilter {
     public Object run() {
         RequestContext requestContext = RequestContext.getCurrentContext();
         requestContext.set(REQUEST_START_TIME_KEY, System.currentTimeMillis());
-        requestContext.set(REQUEST_ID_KEY, CommonTools.uuid());
+//        requestContext.set(REQUEST_ID_KEY, CommonTools.uuid());
         HttpServletResponse response = requestContext.getResponse();
         HttpServletRequest request = requestContext.getRequest();
 
@@ -96,7 +95,7 @@ public class PreZuulFilter extends ZuulFilter {
 //            log.info(">>> 当前用户为： {}", JwtTools.getUserInfo(token, response, requestContext));
 //        }
         if (!FilterUtils.isCorrelationIpPresent()) {
-            FilterUtils.setCorrelationId(CommonTools.uuid());
+//            FilterUtils.setCorrelationId(CommonTools.uuid());
         }
         return null;
     }
