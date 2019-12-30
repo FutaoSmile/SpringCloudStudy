@@ -44,21 +44,21 @@ public class UserApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        new Thread(() -> {
-            while (true) {
-                log.info(StringUtils.repeat("-", 50));
-                log.info("userName:{}", userName);
-                log.info("age:{}", age);
-                log.info("c1:{}", c1);
-                log.info("c2:{}", c2);
-                log.info("c3:{}", c3);
-                log.info("c4:{}", c4);
-                try {
-                    Thread.sleep(2000L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+//        new Thread(() -> {
+//            while (true) {
+//                log.info(StringUtils.repeat("-", 50));
+//                log.info("userName:{}", userName);
+//                log.info("age:{}", age);
+//                log.info("c1:{}", c1);
+//                log.info("c2:{}", c2);
+//                log.info("c3:{}", c3);
+//                log.info("c4:{}", c4);
+//                try {
+//                    Thread.sleep(2000L);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
     }
 }
