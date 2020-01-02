@@ -1,4 +1,4 @@
-package com.futao.biz.user.nearby;
+package com.futao.biz.user.redis;
 
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/nearby")
 @RestController
 @Service
-public class NearbyService {
+public class Nearby {
 
     private static final String STRING = "geo-1";
 
@@ -27,6 +27,14 @@ public class NearbyService {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    /**
+     * 上传位置
+     *
+     * @param x
+     * @param y
+     * @param userId
+     * @return
+     */
     @PostMapping("/uploadPosition")
     public Long uploadPosition(
             @RequestParam("x") double x,
@@ -39,6 +47,12 @@ public class NearbyService {
     }
 
 
+    /**
+     * 计算距离
+     *
+     * @param userId1
+     * @param userId2
+     */
     @GetMapping("/distance")
     public void nearby(
             @RequestParam("userId1") String userId1,
@@ -49,6 +63,13 @@ public class NearbyService {
     }
 
 
+    /**
+     * 查询附近的人
+     *
+     * @param currentUserId
+     * @param meter
+     * @param size
+     */
     @GetMapping("/nearby")
     public void nearby(
             @RequestParam("currentUserId") String currentUserId,
