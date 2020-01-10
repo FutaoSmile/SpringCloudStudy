@@ -1,4 +1,13 @@
 spring:
+  redis:
+    url: 114.215.173.71
+    port: 6379
+    password: HelloRedis123.
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 50
   jpa:
     database: mysql
     show-sql: true
