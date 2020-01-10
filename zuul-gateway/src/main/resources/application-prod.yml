@@ -1,0 +1,39 @@
+server:
+  port: 8885
+spring:
+  application:
+    name: foundation-zuul
+  cloud:
+    consul:
+      enabled: true
+      host: 114.215.173.71
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}-${random.uuid}
+
+
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8881/eureka/
+
+zuul:
+  routes:
+    ribbon-server:
+      path: /ribbon/**
+      service-id: consumer-ribbon
+    feign-server:
+      path: /feign/**
+      service-id: consumer-feign
+    biz-portal:
+      path: /biz/portal/**
+      service-id: biz-portal
+    biz-user:
+      path: /biz/user/**
+      service-id: biz-user
+    # url: http://www.baidu.com   # 将所有的请求都转发到这个默认的地址
+  ignored-services: eureka-provider,consumer-ribbon,consumer-feign    # 可用于忽略eureka中的默认服务名称路由/设置为* 即排除所有来自eurake的服务名称路由
+  prefix: /api/v1       # 路由地址前缀
+
+debug: true
