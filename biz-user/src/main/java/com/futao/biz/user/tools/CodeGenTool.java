@@ -18,7 +18,7 @@ public class CodeGenTool {
                         .password("123456789")
                         .modelName("/biz-user")
                         .basePackage("com.futao.biz.user")
-                        .tableNames(new String[]{"user_user", "user_account"})
+                        .tableNames(new String[]{"user_sign_in"})
                         .build()
         );
     }
