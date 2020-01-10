@@ -24,7 +24,7 @@ spring:
     boot:
       admin:
         client:
-          url: http://114.215.173.71:8080
+          url: http://114.215.173.71:8000
 server:
   port: 8660
 
