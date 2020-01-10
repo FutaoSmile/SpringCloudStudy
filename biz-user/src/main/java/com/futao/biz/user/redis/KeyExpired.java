@@ -28,6 +28,7 @@ public class KeyExpired extends KeyExpirationEventMessageListener {
 
     @Override
     public void onMessage(Message message, byte[] pattern) {
+
         log.info("监听key过期-channel为：[{}]", new String(message.getChannel(), StandardCharsets.UTF_8));
         log.info("监听key过期-消息体为:[{}]", new String(message.getBody(), StandardCharsets.UTF_8));
         log.info("监听key过期-pattern为:[{}]", new String(pattern, StandardCharsets.UTF_8));

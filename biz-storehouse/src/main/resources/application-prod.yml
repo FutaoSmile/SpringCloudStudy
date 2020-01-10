@@ -1,0 +1,46 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    open-in-view: true
+  datasource:
+    url: jdbc:mysql://114.215.173.71/spring_cloud_learn?useUnicode=true&characterEncoding=utf8
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: HelloMysql123.
+  cloud:
+    consul:
+      enabled: true
+      host: 114.215.173.71
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}-${random.uuid}
+  boot:
+    admin:
+      client:
+        url: http://114.215.173.71:8080
+
+server:
+  port: 8661
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8881/eureka/
+
+debug: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
