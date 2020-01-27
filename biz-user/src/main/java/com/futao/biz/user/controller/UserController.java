@@ -24,4 +24,5 @@ public class UserController {
     public List<UserEntity> list() {
         return userService.list();
     }
+
 }

@@ -23,17 +23,17 @@ public class MybatisHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         LOGGER.debug("insert操作时自动设置创建时间(人)与更新时间(人)");
         Timestamp now = new Timestamp(System.currentTimeMillis());
-        this.setFieldValByName("creationDate", now, metaObject);
-//        this.setFieldValByName("createdBy", CurrentUserId.s(false), metaObject);
+        this.setFieldValByName("createDateTime", now, metaObject);
+        this.setFieldValByName("createBy", "creator", metaObject);
 
-        this.setFieldValByName("lastUpdateDate", now, metaObject);
-//        this.setFieldValByName("lastUpdateBy", CurrentUserId.s(false), metaObject);
+        this.setFieldValByName("updateDateTime", now, metaObject);
+        this.setFieldValByName("updateBy", "creator", metaObject);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         LOGGER.debug("update自动设置更新时间(人)");
-        this.setFieldValByName("lastUpdateDate", new Timestamp(System.currentTimeMillis()), metaObject);
-//        this.setFieldValByName("lastUpdateBy", CurrentUserId.s(false), metaObject);
+        this.setFieldValByName("updateDateTime", new Timestamp(System.currentTimeMillis()), metaObject);
+        this.setFieldValByName("updateBy", "updater", metaObject);
     }
 }

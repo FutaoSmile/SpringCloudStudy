@@ -23,7 +23,8 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:6010
+        instance:
+          management-base-url: http://localhost:6010
   redis:
     password:
     port: 6379
@@ -64,7 +65,7 @@ app:
     username: 1
     age: 1
 apollo:
-  meta: http://114.215.173.71:8080
+  meta: http://127.0.0.1:8080
 #  bootstrap:
 #    enabled: true
 #    namespaces: application,TEST1.base   # 该app(appId)下的某个命名空间(某个配置文件)

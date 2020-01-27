@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
  * @date 2020/1/2.
  */
 @Slf4j
-@Component
+//@Component
 public class Transaction implements ApplicationRunner {
 
     @Autowired
